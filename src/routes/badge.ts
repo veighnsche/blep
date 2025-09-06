@@ -4,7 +4,7 @@ import { vibeBadge } from "../lib/svg";
 
 const app = new Hono<{ Bindings: Env }>();
 
-app.get("/:user/:repo.svg", async (c) => {
+app.get("/:user/:repo", async (c) => {
   const { user, repo } = c.req.param();
   const origin = new URL(c.req.url).origin;
   const href = `${origin}/${user}/${repo}`;
